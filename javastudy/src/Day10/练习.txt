@@ -1,0 +1,146 @@
+注：按Java规范书写程序代码，如果你认为程序有错误，请指出，并说明程序错误原因
+
+1.
+写出程序结果
+class Demo
+{
+	public static void func()
+	{
+		try
+		{
+			throw new Exception();
+		}
+		finally
+		{
+			System.out.println("B");
+		}
+	}
+	public static void main(String[] args)
+	{
+		try
+		{
+			func();
+			System.out.println("A");
+		}
+		catch(Exception e)
+		{
+			System.out.println("C");
+		}
+		System.out.println("D");
+	}
+} 
+编译失败：
+如果func上声明了该异常，结果为 B C D
+
+====================================================
+2.
+写出程序结果
+class Test
+{
+	Test()
+	{
+		System.out.println("Test");
+	}
+}
+class Demo extends Test
+{
+	Demo()
+	{
+		// super();
+		System.out.println("Demo");
+	}
+	public static void main(String[] args)
+	{
+		new Test();
+		new Demo();
+	}
+}
+Test
+Demo
+
+Test
+
+考的子类的实例化过程
+=========================================================
+2.
+写出程序结果
+interface A{}
+class B implements A
+{
+	public String func()
+	{
+		return "func";
+	}
+}
+class Demo
+{
+	public static void main(String[] args)
+	{
+		A a = new B();
+		System.out.println(a.func());
+	}
+}
+编译失败：因为A接口中并未定义func方法
+
+
+
+
+=========================================================
+4.
+写出程序结果
+class Fu
+{
+	boolean show(char a)
+	{
+		System.out.println(a);
+		return true;
+	}
+}
+class Demo extends Fu
+{
+	public static void main(String[] args)
+	{
+		int i = 0;
+		Fu f = new Demo();
+		Demo d = new Demo();
+		for(f.show('A');f.show('B')&&(i<2);f.show('C'))
+		{
+			i++;
+			d.show('D');
+		}
+		
+		
+	}
+	boolean show(char a)
+	{
+		System.out.println(a);
+		return false;
+	}
+	
+}
+A B
+
+
+===========================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

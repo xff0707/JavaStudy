@@ -1,0 +1,8 @@
+META-INF/
+META-INF/MANIFEST.MF
+pack/
+pack/JarDemo.class
+pack/PackageDemo.class
+packa/
+packa/DemoA.class
+packa/Demoaa.class

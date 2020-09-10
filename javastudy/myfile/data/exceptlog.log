@@ -1,0 +1,3 @@
+2020-04-21 23:28:56
+java.lang.ArrayIndexOutOfBoundsException: Index 3 out of bounds for length 2
+	at Day19.ExceptionInfo.main(ExceptionInfo.java:13)
