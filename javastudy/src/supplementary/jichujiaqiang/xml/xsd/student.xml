@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+
+<!--<!DOCTYPE students SYSTEM "student.dtd">-->
+
+<!DOCTYPE students [
+        <!ELEMENT students (student*) >
+        <!ELEMENT student (name,age,sex)>
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT age (#PCDATA)>
+        <!ELEMENT sex (#PCDATA)>
+        <!ATTLIST student number ID #REQUIRED>
+        ]>
+
+<!--
+<students xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemLocaltion="http://www.itcast.cn/xml student.xsd"
+          &lt;!&ndash;xmlns="http://www.itcast.cn/xml"&ndash;&gt;
+        >
+    <student number="s1">
+        <name>张三</name>
+        <age>24</age>
+        <sex>男</sex>
+    </student>
+
+</students>-->
+<students>
+    <student number="s1">
+        <name>张三</name>
+        <age>24</age>
+        <sex>男</sex>
+    </student>
+
+</students>
