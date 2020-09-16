@@ -1,4 +1,4 @@
-package supplementary.fanshe;
+package supplementary.reflect;
 
 import java.lang.reflect.Method;
 
@@ -11,7 +11,7 @@ public class ReflectDemo4 {
 
     public static void getMethodDemo_3() throws Exception
     {
-        Class clazz = Class.forName("supplementary.fanshe.Person");
+        Class clazz = Class.forName("supplementary.reflect.Person");
         Method method = clazz.getMethod("paramMethod",String.class,int.class);
         Object obj = clazz.newInstance();
         method.invoke(obj,"Сǿ",60);
@@ -19,7 +19,7 @@ public class ReflectDemo4 {
 
     public static void getMethodDemo_2() throws Exception
     {
-        Class clazz = Class.forName("supplementary.fanshe.Person");
+        Class clazz = Class.forName("supplementary.reflect.Person");
         Method method = clazz.getMethod("show",null);
 
     }
@@ -29,7 +29,7 @@ public class ReflectDemo4 {
     * */
     public static void getMethodDemo_1() throws Exception
     {
-        Class clazz = Class.forName("supplementary.fanshe.Person");
+        Class clazz = Class.forName("supplementary.reflect.Person");
         Method[] methods = null;//clazz.getMethods();
         methods = clazz.getDeclaredMethods();
         for (Method m:methods)

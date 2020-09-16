@@ -1,4 +1,4 @@
-package supplementary.fanshe;
+package supplementary.reflect;
 
 import java.lang.reflect.Field;
 
@@ -10,7 +10,7 @@ public class ReflectDemo3 {
     //获取字节码文件中的字段
     public static void getFieldDemo() throws Exception
     {
-        Class clazz = Class.forName("supplementary.fanshe.Person");
+        Class clazz = Class.forName("supplementary.reflect.Person");
         //Field field = clazz.getDeclaredField("name");//getField("age")只能获取公有
 
         Field field = clazz.getDeclaredField("age");//只获取本类，但包含私有

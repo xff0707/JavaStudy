@@ -1,4 +1,4 @@
-package supplementary.fanshe;
+package supplementary.reflect;
 
 public class Person {
     private int age;

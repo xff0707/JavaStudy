@@ -1,4 +1,4 @@
-package supplementary.fanshe;
+package supplementary.reflect;
 
 public class ReflectDemo1 {
     public static void main(String[] args) throws ClassNotFoundException {
@@ -8,7 +8,7 @@ public class ReflectDemo1 {
     }
 
     public static void getClassObject_3() throws ClassNotFoundException {
-        Class clazz = Class.forName("supplementary.fanshe.Person");
+        Class clazz = Class.forName("supplementary.reflect.Person");
         System.out.println(clazz);
     }
 
