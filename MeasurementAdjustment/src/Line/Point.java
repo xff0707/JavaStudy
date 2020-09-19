@@ -1,7 +1,6 @@
-package Line;
+package line;
 
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
 
 public class Point {
     private double x = 0;
@@ -40,6 +39,6 @@ public class Point {
     @Override
     public String toString() {
         df.setMaximumFractionDigits(2);//保留两位小数
-        return "x="+df.format(x)+",y="+df.format(y)+"\n";
+        return "X="+df.format(x)+",Y="+df.format(y)+"\n";
     }
 }
