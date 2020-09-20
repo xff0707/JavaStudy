@@ -1,7 +1,5 @@
-import gui.ChangeCoorsForm;
-import gui.IntersectionForm;
-import gui.TraverseForm;
-import gui.WelcomeFrom;
+import Jama.Matrix;
+import gui.*;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
@@ -57,16 +55,24 @@ public class Main {
 
         //导线界面
         TraverseForm s = new TraverseForm();
-        JButton spur = w.getspurTra();
+        JButton spurBut = w.getspurTra();
         JButton backButs = s.getBackBut();
-        lister(spur, w, s, backButs);
+        lister(spurBut, w, s, backButs);
 
 
         //交会定点界面
         IntersectionForm i = new IntersectionForm();
-        JButton inter = w.getIntersectionBut();
+        JButton interBut = w.getIntersectionBut();
         JButton backButi = i.getBackBut();
-        lister(inter, w, i, backButi);
+        lister(interBut, w, i, backButi);
+
+
+        //空间后方交会界面
+        SpaceRearRendezvousForm sR = new SpaceRearRendezvousForm();
+        JButton spaceBut = w.getSpaceBut();
+        JButton backButSR = sR.getBackBut();
+        lister(spaceBut, w, sR, backButSR);
+
 
 
     }

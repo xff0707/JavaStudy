@@ -5,9 +5,15 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import static java.lang.Double.parseDouble;
 import static tools.DMSChange.*;
 import static java.lang.Math.*;
 
+/**
+ * 坐标转换窗体类，实现大地坐标与空间直角坐标的转换
+ * @version V1.0
+ * @author xff07
+ */
 public class ChangeCoorsForm extends JFrame {
     private JRadioButton cgcs2000,wgs84,xinan80,beijing54,bToX,xToB;
     private JButton calculateBut, cleanBut,backBut;
@@ -20,11 +26,17 @@ public class ChangeCoorsForm extends JFrame {
     private double a,b,e2,f,lontud,lattud,elevat,x,y,z;
     private boolean flag = true;//判断标记，默认BLH->XYZ
 
+    /**
+     * 创建一个坐标转换窗体
+     * @throws HeadlessException
+     */
     public ChangeCoorsForm() throws HeadlessException {
         init();
     }
 
-
+    /**
+     * 初始化
+     */
     private void init()
     {
         dataInit();
@@ -40,7 +52,9 @@ public class ChangeCoorsForm extends JFrame {
 
     }
 
-
+    /**
+     * 数据初始化
+     */
     private void dataInit()
     {
         ellipName = "CGCS2000";
@@ -48,7 +62,9 @@ public class ChangeCoorsForm extends JFrame {
         b = 6356752.31414036;
     }
 
-    //其他组件的初始化
+    /**
+     * 其他组件的初始化
+     */
     private void widgetinit()
     {
         //组件初始化并加入到面板中
@@ -115,7 +131,7 @@ public class ChangeCoorsForm extends JFrame {
         xinan80 = new JRadioButton("XinAn80");
         beijing54 = new JRadioButton("BeiJing54");
         cgcs2000.setSelected(true);//默认选中
-        ellipsoid = new ButtonGroup();
+        ellipsoid = new ButtonGroup();//成组
         ellipsoid.add(cgcs2000);
         ellipsoid.add(wgs84);
         ellipsoid.add(xinan80);
@@ -146,7 +162,7 @@ public class ChangeCoorsForm extends JFrame {
         beijing54.addActionListener(e -> {
             ellipName = "BeiJing54";
             a = 6378245;
-            b = 6356863.01877305;
+            b = 6356863.01877305;//添加点击事件
         });
 
         //输入坐标文本框
@@ -159,7 +175,6 @@ public class ChangeCoorsForm extends JFrame {
         jLayeredPane.add(xCoor);
         jLayeredPane.add(yCoor);
         jLayeredPane.add(zCoor);
-
 
         //计算按钮
         calculateBut = new JButton("计算");
@@ -214,16 +229,20 @@ public class ChangeCoorsForm extends JFrame {
 
     }
 
+    /**
+     * 正算计算
+     * @throws NumberFormatException
+     */
     private void 正算() throws NumberFormatException
     {
         //读取数据
-        lontud = dmsToRad(new Double(xCoor.getText()));
+        lontud = dmsToRad(parseDouble(xCoor.getText()));
         if (lontud>=PI || lontud<=-PI)
             throw new NumberFormatException();
-        lattud = dmsToRad(new Double(yCoor.getText()));
+        lattud = dmsToRad(parseDouble(yCoor.getText()));
         if (lattud>=PI/2 || lattud<=-PI/2)
             throw new NumberFormatException();
-        elevat = new Double(zCoor.getText());
+        elevat = parseDouble(zCoor.getText());
         if (elevat<=0)
             throw new NumberFormatException();
 
@@ -253,16 +272,24 @@ public class ChangeCoorsForm extends JFrame {
                 );
     }
 
+    /**
+     * 返回退出按钮对象，用于提供返回方法事件监听
+     * @return 返回按钮对象
+     */
     public JButton getBackBut() {
         return backBut;
     }
 
+    /**
+     * 反算计算
+     * @throws NumberFormatException
+     */
     private void 反算() throws NumberFormatException
     {
         //读取数据
-        x = new Double(xCoor.getText());
-        y = new Double(yCoor.getText());
-        z = new Double(zCoor.getText());
+        x = parseDouble(xCoor.getText());
+        y = parseDouble(yCoor.getText());
+        z = parseDouble(zCoor.getText());
 
         //计算
         double w,n,b1,b2,err = 5*10*pow(10,-10);

@@ -3,7 +3,9 @@ package tools;
 import java.text.DecimalFormat;
 
 /**
- *用于坐标转换的工具类
+ *用于角度转换的工具类
+ * @version V1.0
+ * @author xff07
  */
 public class DMSChange {
     /**
@@ -30,6 +32,12 @@ public class DMSChange {
      */
     public static String radToDMSStr(double rad)
     {
+        int k = 1;
+        if (rad<0)
+        {
+            rad = -rad;
+            k = -1;
+        }
         double dd,mm,ss,deg;
         deg = rad * 180 / Math.PI;
         dd = (int) deg;
@@ -42,7 +50,8 @@ public class DMSChange {
         df2.setMinimumFractionDigits(0);
         DecimalFormat df3 = new DecimalFormat();
         df3.setMaximumFractionDigits(0);
-        return df3.format(dd)+"°"+df2.format(mm)+"′"+df1.format(ss)+"″";
+
+        return df3.format(k*dd)+"°"+df2.format(mm)+"′"+df1.format(ss)+"″";
     }
 
 }

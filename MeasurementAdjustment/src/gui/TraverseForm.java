@@ -17,6 +17,11 @@ import java.util.HashMap;
 
 import static tools.FileTools.*;
 
+/**
+ * 导线计算窗体类
+ * @version V1.0
+ * @author xff07
+ */
 public class TraverseForm extends JFrame {
     private JButton openFileBut, calculateBut, saveBut, backBut;
     private JLayeredPane jLayeredPane = new JLayeredPane();
@@ -34,17 +39,28 @@ public class TraverseForm extends JFrame {
     private JScrollPane jsp;
     private CloseConductor closeConductor;
 
+    /**
+     * 返回输出按钮对象，用于提供返回方法事件监听
+     * @return 返回按钮对象
+     */
     public JButton getBackBut() {
         return backBut;
     }
 
+    /**
+     * 创建一个导线计算窗体
+     * @throws HeadlessException
+     */
     public TraverseForm() throws HeadlessException {
         init();
     }
 
+    /**
+     * 初始化
+     */
     private void init()
     {
-        wedgetinit();
+        wedgetInit();
 
         setTitle("导线计算");
         setSize(640,400);
@@ -54,8 +70,10 @@ public class TraverseForm extends JFrame {
         setLayeredPane(jLayeredPane);
     }
 
-    //控件初始化
-    private void wedgetinit()
+    /**
+     * 控件初始化
+     */
+    private void wedgetInit()
     {
         //按钮初始化
         //打开文件按钮
@@ -66,7 +84,7 @@ public class TraverseForm extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 try {
-                    openFilePath = openFile();
+                    openFilePath = selectFile();
                 } catch (FileNotFoundException ex) {
                     return;
                 }
@@ -218,11 +236,11 @@ public class TraverseForm extends JFrame {
         saveBut.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (saveBut.isEnabled()){
+                if (!(saveBut.isEnabled())){
                     return;
                 }
                 try {
-                    saveFilePath = saveFile();
+                    saveFilePath = selectFile();
                 } catch (FileNotFoundException ex) {
                     return;
                 }
@@ -293,7 +311,7 @@ public class TraverseForm extends JFrame {
 
         //文本框初始化
         text = new JTextArea();
-        text.setBounds(140,15,470,334);
+        //text.setBounds(140,15,470,334);
         text.setLineWrap(true);
         //jLayeredPane.add(text);
         text.setText(helptext[calcType]);
@@ -338,7 +356,5 @@ public class TraverseForm extends JFrame {
             calculateBut.setEnabled(false);
             saveBut.setEnabled(false);
         });
-
     }
-
 }

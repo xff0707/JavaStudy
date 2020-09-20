@@ -199,10 +199,6 @@ public class IntersectionForm extends JFrame {
                 x = xc + dx;
                 y = yc + k * dx;
 
-
-
-
-
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null,"请输入正确的数据！","ERROR_MESSAGE",JOptionPane.ERROR_MESSAGE);
                 return;
