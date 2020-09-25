@@ -75,6 +75,7 @@ public class TestChannel {
     //字符集
     public static void test6() throws CharacterCodingException {
         Charset cs1 = Charset.forName("GBK");
+        //Charset cs1 = Charset.forName("UTF-8");
 
         //获取编码器
         CharsetEncoder ce = cs1.newEncoder();
@@ -102,7 +103,8 @@ public class TestChannel {
         System.out.println("------------------------------");
 
 
-        Charset cs2 = Charset.forName("UTF-8");
+        Charset cs2 = Charset.forName("UTF-8");//你好(UTF-8)=浣犲ソ(GBK)
+        //Charset cs2 = Charset.forName("GBK");//你好(GBK)=???(UTF-8)
         bBuf.flip();
         CharBuffer cBuf3 = cs2.decode(bBuf);
         System.out.println(cBuf3.toString());
@@ -204,7 +206,7 @@ public class TestChannel {
             outChannel = fos.getChannel();
 
             //②分配指定大小的缓冲区
-            ByteBuffer buf = ByteBuffer.allocateDirect(1024);
+            ByteBuffer buf = ByteBuffer.allocate(1024);
 
             //③将通道中的数据存入缓冲区中
             while(inChannel.read(buf)!=-1)
