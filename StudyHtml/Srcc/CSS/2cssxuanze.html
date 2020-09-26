@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建css选择器</title>
+    <style type="text/css">
+        .class1 {
+            font-size: 40px;
+            color: greenyellow;
+        }
+        #id {
+            font-size: 50px;
+        }
+        [href="1cssprimary.html"] {
+            font-size: 60px;<!--属性选择器-->
+            color: aqua;
+        }
+        [href] {
+            font-size: 80px;<!--属性选择器-->
+            color: aqua;
+        }
+        a {
+            font-size: 50px;
+            color: cyan;
+        }
+        a:hover {
+            font-size: 55px;
+            color: #ff50a4;
+        }
+    </style>
+</head>
+<body>
+<a href="1cssprimary.html">水电费</a><!--属性选择器-->
+<a href="2cssxuanze.html">水电费</a><!--属性选择器-->
+<a class="class1">水电费</a><!--class是一个全局属性-->
+<p id="id">水电费</p><!--id是一个全局属性，但其为唯一标识，建议不重复-->
+<h1>水电费</h1>
+</body>
+</html>
