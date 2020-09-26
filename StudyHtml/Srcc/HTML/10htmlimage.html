@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建图片</title>
+</head>
+<body>
+<a href="1creatHtml.html" target="_blank">
+    <img src="4.png"><br>
+</a><!--带链接的图片，点击即可跳转到该链接-->
+<img src="4.png"><br><!--一个普通图片-->
+
+<img src="4.png" width="128" height="128" alt="帮助按钮"><br><!--设置图片的备用内容-->
+
+<img src="MIUI图标.jpg" usemap="#map1">
+<map name="map1">
+    <area href="time.html" shape="rect" coords="30,28,127,126" target="_blank"><!--Rect矩形，四个参数；左上右下-->
+    <area href="whether.html"><!--shape和coords共同作用，一个是形状，一个是形状的参数，形状内点击跳转链接-->
+    <area><!--代表图像上可以被点击的一块区域-->
+    <area>
+</map>
+
+<form>
+    <input type="image" src="MIUI图标.jpg"><!--表单元素中的图片，点击整个图片可以跳转链接-->
+</form>
+
+<img src="4.png" width="128" usemap="#map2">
+<map name="map2">
+    <area href="2htmljichu.html" shape="circle" coords="64,64,42" target="_blank"><!--circle圆形，三个参数，左/右边缘到圆心的距离，半径-->
+</map>
+</body>
+</html>

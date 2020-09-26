@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建表格</title>
+</head>
+<body>
+<table border="1px" align="center"><!--居中align-->
+    <thead><!--表头-->
+    <tr>
+        <th>用户名</th>
+        <th>性别</th>
+        <th>密码</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>admin</td>
+        <td>男</td>
+        <td>123456</td>
+    </tr>
+    <tr>
+        <td>我我</td>
+        <td>男</td>
+        <td>3456</td>
+    </tr>
+    <tr>
+        <td>妮妮</td>
+        <td>男</td>
+        <td>1236</td>
+    </tr>
+    </tbody>
+    <tfoot><!--表脚-->
+    <tr>
+        <td>用户名</td>
+        <td>性别</td>
+        <td>密码</td>
+    </tr>
+    </tfoot>
+</table>
+
+<br>
+<table border="1px"><!--边界像素值1-->
+    <tr>
+        <th rowspan="2">aaaaa</th><!--占2列-->
+        <th>aaaaa</th>
+        <th>aaaaa</th>
+        <th>aaaaa</th>
+    </tr>
+    <tr>
+        <td colspan="2">aaaaa</td><!--第一个已经是和第一行第一列合并了，所以这里是同一行的第二和第三个合并-->
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td>aaaaa</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>aaaaa</td>
+    </tr>
+</table>
+</body>
+</html>

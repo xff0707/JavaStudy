@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建表单2</title>
+</head>
+<body>
+<form>
+    <input type="button" value="按钮">
+    <button>按钮</button><!--js合作并且作为绑定事件的 onclick=""-->
+    <input type="submit" value="提交"><!--提交表单，获取用户输入的值--><br>
+
+    <input type="range" min="-100" max="100" step="100"><br><!--数字滑动-->
+    <input type="range" min="-100" max="100" step="100" value="100"><br>
+    <input type="number" min="-100" max="100" value="0"><br><!--手动输入数字-->
+    <input type="checkbox">选择<br>
+    <input type="radio" name="a" checked>选择A<!--固定选项单选题，选了一个不能取消，默认点击第一个--><br>
+    <input type="radio" name="a">选择B<!--固定选项单选题，必须选一个--><br>
+    <input type="radio" name="a">选择C<!--固定选项单选题，必须选一个--><br>
+
+    你最喜欢吃的说过是什么？
+    <select>
+        <option>苹果</option>
+        <option>香蕉</option>
+        <option>西瓜</option>
+    </select>
+    <br>
+
+    <input type="text" list="datalist1">
+    <datalist id="datalist1">
+        <option>苹果</option>
+        <option>香蕉</option>
+        <option>西瓜</option>
+    </datalist>
+
+</form>
+</body>
+</html>
