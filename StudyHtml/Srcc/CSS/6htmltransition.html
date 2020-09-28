@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建文本过渡</title>
+    <style type="text/css">
+        p{
+            width: 100px;
+            height: 100px;
+            background-color: antiquewhite;
+        }
+        p:hover{
+            width: 200px;
+            height: 200px;
+            background-color: #fae3a1;
+            transition-delay: 150ms;/*延迟1秒变化*/
+            transition-duration: 500ms;/*值越大，变化速度越慢*/
+            transition-property: background-color;/*变化的属性*/
+
+
+            /*-webkit-transition-duration: inherit;/*-webkit-前缀，chrome和safari内核*/
+            /*
+            前缀            对应浏览器
+            -webkit-    chrome和safari内核
+            -o-             欧鹏
+            -moz-           火狐
+            -ms-            微软
+            */
+        }
+    </style>
+</head>
+<body>
+<p></p>
+</body>
+</html>
