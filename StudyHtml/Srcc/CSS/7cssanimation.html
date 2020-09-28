@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建动画</title>
+    <style type="text/css">
+        p{
+            width: 100px;
+            height: 100px;
+            background-color: antiquewhite;
+        }
+        p:hover{
+            animation-duration: 1000ms;
+            animation-delay: 200ms;
+            animation-name: XFF;
+            /*animation-iteration-count: infinite;/*无限循环*/
+            animation-iteration-count: 2;/*最后一定回到初始值*/
+            animation-direction: alternate;
+        }
+        @keyframes XFF {
+
+            /*
+            from{
+                width: 100px;
+                height: 100px;
+                background-color: #7199ff;
+            }
+            50%{
+                width: 130px;
+                height: 130px;
+                background-color: #afff5b;
+            }
+            75%{
+                width: 160px;
+                height: 160px;
+                background-color: #ffce32;
+            }
+
+             */
+            to{
+                width: 200px;
+                height: 200px;
+                background-color: #ffad2a;
+            }
+        }
+    </style>
+</head>
+<body>
+<p></p>
+</body>
+</html>
