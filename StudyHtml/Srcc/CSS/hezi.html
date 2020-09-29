@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建盒子模型</title>
+    <style type="text/css">
+        .class1{
+            border: 1px solid black;
+            background-color: antiquewhite;
+            padding-top: 100px;
+            /*background-clip: border-box;/*全部填充，背景被裁剪到边框盒*/
+            background-clip: content-box;/*背景被裁剪到内容框*/
+            /*background-clip: padding-box;/*背景被裁剪到内边距框*/
+
+            /*padding: 100px;/*全部100px*/
+            /*padding: 100px 50px;/*上下100px，左右50px*/
+            /*padding: 100px 80px 50px 30px;/*上右下左*/
+
+            /*padding-top: 100px;
+            padding-left: 100px;
+            padding-right: 100px;
+            padding-bottom: 100px;/*内边距
+            */
+
+            margin-top: 100px;/*外边距*/
+            margin-left: 100px;
+
+
+        }
+    </style>
+</head>
+<body>
+<div class="class1">安居乐业</div>
+</body>
+</html>
