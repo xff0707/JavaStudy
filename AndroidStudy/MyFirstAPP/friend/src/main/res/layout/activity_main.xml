@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+    >
+        <ImageView android:layout_width="100dp"
+                   android:layout_height="100dp"
+                   android:id="@+id/ico1"
+                    android:layout_alignParentLeft="true"
+                   android:layout_margin="10dp"
+                   android:src="@mipmap/tx1"
+        />
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="雪绒花"
+                  android:textColor="#576B95"
+                  android:id="@+id/name1"
+                  android:layout_marginTop="10dp"
+                  android:layout_toRightOf="@id/ico1"
+        />
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="有奶就是妈"
+                  android:id="@+id/content1"
+                  android:layout_marginTop="5dp"
+                  android:minLines="3"
+                  android:layout_marginBottom="5dp"
+                  android:layout_toRightOf="@id/ico1"
+                  android:layout_below="@id/name1"
+        />
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textColor="#9A9A9A"
+                  android:text="昨天"
+                  android:id="@+id/content2"
+                  android:layout_marginTop="3dp"
+                  android:layout_toRightOf="@id/ico1"
+                  android:layout_below="@id/content1"
+        />
+        <ImageView android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                   android:layout_below="@id/content1"
+                   android:src="@mipmap/mip"
+        />
+    </RelativeLayout>
+    <ImageView android:layout_width="wrap_content"
+               android:layout_height="3dp"
+               android:background="@mipmap/dian"/>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+        <ImageView android:layout_width="100dp"
+                   android:layout_height="100dp"
+                   android:id="@+id/ico2"
+                   android:layout_alignParentLeft="true"
+                   android:layout_margin="10dp"
+                   android:src="@mipmap/tx2"
+        />
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="淡淡的印象"
+                  android:textColor="#576B95"
+                  android:id="@+id/name2"
+                  android:layout_marginTop="10dp"
+                  android:layout_toRightOf="@id/ico2"
+        />
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="哈恰玛恰玛"
+                  android:id="@+id/content3"
+                  android:layout_marginTop="5dp"
+                  android:minLines="3"
+                  android:layout_marginBottom="5dp"
+                  android:layout_toRightOf="@id/ico2"
+                  android:layout_below="@id/name2"
+        />
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textColor="#9A9A9A"
+                  android:text="6小时前"
+                  android:id="@+id/content4"
+                  android:layout_marginTop="3dp"
+                  android:layout_toRightOf="@id/ico2"
+                  android:layout_below="@id/content3"
+        />
+        <ImageView android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentRight="true"
+                   android:layout_below="@id/content4"
+                   android:src="@mipmap/mip"
+        />
+    </RelativeLayout>
+    <ImageView android:layout_width="wrap_content"
+               android:layout_height="3dp"
+               android:background="@mipmap/dian"/>
+
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello World!"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+</LinearLayout>
