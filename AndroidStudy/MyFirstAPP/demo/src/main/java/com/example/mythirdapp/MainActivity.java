@@ -1,8 +1,10 @@
 package com.example.mythirdapp;
 
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +20,24 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+        setContentView(R.layout.imagebuttontext);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);//设置全屏显示
+        ImageButton start = findViewById(R.id.start);
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,"您单击了开始游戏按钮",Toast.LENGTH_LONG).show();
+            }
+        });
+        ImageButton switch1 = findViewById(R.id.switch1);
+        switch1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,"您单击了切换账号按钮",Toast.LENGTH_LONG).show();
+            }
+        });
+
+        /*
         setContentView(R.layout.buttontext);
 
         Button log = findViewById(R.id.login);
@@ -27,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this,"您已授权登录开心消消乐",Toast.LENGTH_LONG).show();
             }
         });
-
+        */
 
         /*
         setContentView(R.layout.buttondemo);
@@ -40,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this,"单击了按钮1",Toast.LENGTH_SHORT).show();
             }
         });
-*/
+        */
 
 
 
