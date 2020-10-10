@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:orientation="vertical"
+              android:layout_height="match_parent">
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="2010年，我国极端灾害天气突发多发，西南地区发生历史罕见特大旱灾；西北、西南等地发生多起山洪泥石流灾害。到目前为止，人类还不能准确预测自然灾害，更不能有效控制自然灾害。这说明"
+    />
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/text1"
+              android:text="（ ）"
+    />
+
+
+<RadioGroup android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radiogroup1">
+    <RadioButton android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="A.规律是客观的，规律是不变的"
+                 android:textColor="#673AB7"
+    />
+    <RadioButton android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="B.规律有好坏之分，有些规律会给人们带来灾害"
+                 android:textColor="#673AB7"
+    />
+    <RadioButton android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="C.人的主观能动性制约着规律"
+                 android:textColor="#673AB7"
+    />
+    <RadioButton android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="D.人们对规律的认识是一个长期发展"
+                 android:textColor="#673AB7"
+    />
+</RadioGroup>
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button1"
+            android:text="提交"/>
+
+</LinearLayout>

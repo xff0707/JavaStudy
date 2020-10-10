@@ -2,10 +2,8 @@ package com.example.mythirdapp;
 
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.Toast;
+import android.widget.*;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -19,7 +17,43 @@ public class MainActivity extends AppCompatActivity {
         //setContentView(R.layout.edittexttext);
 
 
+        setContentView(R.layout.radiobuttondemo);
+        final RadioGroup radioGroup = findViewById(R.id.radiogroup1);
+        final TextView t = findViewById(R.id.text1);
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton r = findViewById(checkedId);
+                System.out.println(r.getText());
+                t.setText("（"+(char)(checkedId+64)+"）");
+                Toast.makeText(MainActivity.this,"您选择了："+r.getText(),Toast.LENGTH_LONG).show();
+            }
+        });
 
+        Button button = findViewById(R.id.button1);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for (int i = 0; i < radioGroup.getChildCount(); i++) {
+                    RadioButton r = (RadioButton) radioGroup.getChildAt(i);
+                    if (r.isChecked()){
+                        //String boo = (i==3)?"，您的答案是正确的":"，您的答案是错误的";
+                        //Toast.makeText(MainActivity.this,r.getText()+boo,Toast.LENGTH_LONG).show();
+                        if (i==3){
+                            Toast.makeText(MainActivity.this,"回答正确",Toast.LENGTH_LONG).show();
+                        }else {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                            builder.setMessage("回答错误，没有解析谢谢");
+                            builder.setPositiveButton("确定",null).show();
+                        }
+                        break;
+                    }
+                }
+            }
+        });
+
+
+        /*
         setContentView(R.layout.imagebuttontext);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);//设置全屏显示
         ImageButton start = findViewById(R.id.start);
@@ -36,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this,"您单击了切换账号按钮",Toast.LENGTH_LONG).show();
             }
         });
+        */
 
         /*
         setContentView(R.layout.buttontext);
