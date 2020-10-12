@@ -1,5 +1,6 @@
 package com.example.mythirdapp;
 
+import android.app.Activity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.*;
@@ -7,7 +8,12 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
+import java.util.Calendar;
+
 public class MainActivity extends AppCompatActivity {
+//public class MainActivity extends Activity {//日期选择器显示不全需要继承Activity
+int year,month,day;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +23,62 @@ public class MainActivity extends AppCompatActivity {
         //setContentView(R.layout.edittexttext);
 
 
+        //日期选择器
+        setContentView(R.layout.datepickerdemo);
+        DatePicker datePicker = findViewById(R.id.datepicker);
+        Calendar calendar = Calendar.getInstance();
+        year = calendar.get(calendar.YEAR);
+        month = calendar.get(calendar.MONTH);
+        day = calendar.get(calendar.DAY_OF_MONTH);
+        datePicker.init(year,month,day, new DatePicker.OnDateChangedListener() {
+            @Override
+            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                MainActivity.this.year = year;//更改本类中的年月日为选中的日期
+                MainActivity.this.month = monthOfYear;
+                MainActivity.this.day = dayOfMonth;
+                show(year,monthOfYear,dayOfMonth);
+            }
+        });
+
+
+
+        /*
+        //复选框
+        setContentView(R.layout.checkboxtext);
+        final Button btn_login = findViewById(R.id.btn_login);
+        final CheckBox checkBox1 = findViewById(R.id.checkbox1);
+        final CheckBox checkBox2 = findViewById(R.id.checkbox2);
+        final CheckBox checkBox3 = findViewById(R.id.checkbox3);
+        btn_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String text = "";
+                if (checkBox1.isChecked())
+                    text+=checkBox1.getText().toString();
+                if (checkBox2.isChecked())
+                    text+=checkBox2.getText().toString();
+                if (checkBox3.isChecked())
+                    text+=checkBox3.getText().toString();
+                Toast.makeText(MainActivity.this,text,Toast.LENGTH_LONG).show();
+            }
+        });
+        */
+
+        /*
+        setContentView(R.layout.checkboxdemo);
+        final CheckBox cb = findViewById(R.id.like1);
+        cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (cb.isChecked())
+                    Toast.makeText(MainActivity.this,cb.getText(),Toast.LENGTH_LONG).show();
+
+            }
+        });
+        */
+
+        /*
+        //单选按钮
         setContentView(R.layout.radiobuttondemo);
         final RadioGroup radioGroup = findViewById(R.id.radiogroup1);
         final TextView t = findViewById(R.id.text1);
@@ -51,9 +113,11 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        */
 
 
         /*
+        //图片按钮
         setContentView(R.layout.imagebuttontext);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);//设置全屏显示
         ImageButton start = findViewById(R.id.start);
@@ -73,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
         */
 
         /*
+        //图片按钮
         setContentView(R.layout.buttontext);
 
         Button log = findViewById(R.id.login);
@@ -85,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
         */
 
         /*
+        //按钮
         setContentView(R.layout.buttondemo);
 
         //单击事件监听器
@@ -100,6 +166,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         /*
+        //编辑框
         EditText et = findViewById(R.id.et1);//Android Studio需要强转类型
         et.getText();//获取编辑框类型
 
@@ -107,5 +174,13 @@ public class MainActivity extends AppCompatActivity {
     }
     public void myClick(View view){
         Toast.makeText(MainActivity.this,"单击了按钮2",Toast.LENGTH_LONG).show();
+    }
+
+
+
+    private void show(int year, int month, int day){
+        //配合日期选择器使用
+        String str = year+"年"+(month+1)+"月"+day+"日";
+        Toast.makeText(MainActivity.this,str,Toast.LENGTH_LONG).show();
     }
 }
