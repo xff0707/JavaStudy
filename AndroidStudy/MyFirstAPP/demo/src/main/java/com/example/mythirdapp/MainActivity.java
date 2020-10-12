@@ -1,7 +1,9 @@
 package com.example.mythirdapp;
 
 import android.app.Activity;
+import android.os.SystemClock;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.*;
 import androidx.appcompat.app.AlertDialog;
@@ -12,7 +14,7 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 //public class MainActivity extends Activity {//日期选择器显示不全需要继承Activity
-int year,month,day;
+//int year,month,day;
 
 
     @Override
@@ -23,6 +25,45 @@ int year,month,day;
         //setContentView(R.layout.edittexttext);
 
 
+
+
+
+
+        setContentView(R.layout.chronometertext);
+        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);//设置全屏
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);//报错？？
+        final Chronometer ch = findViewById(R.id.chronometer);
+        //ch.setBase(System.currentTimeMillis());
+        ch.setBase(SystemClock.elapsedRealtime());//起始时间
+        ch.setFormat("%s");//时间格式
+        ch.start();
+        ch.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
+            @Override
+            public void onChronometerTick(Chronometer chronometer) {
+                if (SystemClock.elapsedRealtime()-ch.getBase()>=60*1000){
+                    ch.stop();
+                }
+            }
+        });
+
+
+        //setContentView(R.layout.chronometerdemo);
+
+        /*
+        //时间选择器
+        setContentView(R.layout.timepicker);
+        TimePicker tp = findViewById(R.id.timepicker);
+        tp.setIs24HourView(true);
+        tp.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+            @Override
+            public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+                String str = hourOfDay+"时"+minute+"分";
+                Toast.makeText(MainActivity.this,str,Toast.LENGTH_SHORT).show();
+            }
+        });
+        */
+
+        /*
         //日期选择器
         setContentView(R.layout.datepickerdemo);
         DatePicker datePicker = findViewById(R.id.datepicker);
@@ -39,7 +80,7 @@ int year,month,day;
                 show(year,monthOfYear,dayOfMonth);
             }
         });
-
+        */
 
 
         /*
