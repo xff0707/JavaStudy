@@ -1,11 +1,8 @@
 package com.example.superuicomponents;
 
-import android.app.Activity;
-import android.os.Handler;
-import android.os.Message;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.*;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -17,6 +14,32 @@ public class MainActivity extends AppCompatActivity {
         //setContentView(R.layout.activity_main);
 
 
+        //图像切换器
+        setContentView(R.layout.imageswitcherdemo);
+        ImageSwitcher is = findViewById(R.id.imageSwichter);
+        is.setOutAnimation(AnimationUtils.loadAnimation(MainActivity.this,android.R.anim.fade_out));
+        is.setInAnimation(AnimationUtils.loadAnimation(MainActivity.this,android.R.anim.fade_in));
+        is.setFactory(new ViewSwitcher.ViewFactory() {
+            @Override
+            public View makeView() {
+                ImageView imageView = new ImageView(MainActivity.this);
+                imageView.setImageResource(R.drawable.img01);
+                return imageView;
+            }
+        });
+        is.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((ImageSwitcher)v).setImageResource(R.drawable.img02);
+            }
+        });
+
+
+
+
+
+
+        /*
         //实现应用ImageView组件显示图像
         setContentView(R.layout.imageviewtext);
 
