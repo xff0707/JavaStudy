@@ -17,7 +17,21 @@ public class MainActivity extends AppCompatActivity {
         //setContentView(R.layout.activity_main);
 
 
+        //实现应用ImageView组件显示图像
+        setContentView(R.layout.imageviewtext);
 
+
+
+
+
+
+        /*
+        //图像视图
+        setContentView(R.layout.imageviewdemo);
+
+
+        /*
+        //星级评分条-实现手机淘宝评价页面的星级评分条
         setContentView(R.layout.ratingbartext);
         final RatingBar ratingBar = findViewById(R.id.ratingbar);
         Button button = findViewById(R.id.btn);
