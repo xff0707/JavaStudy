@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+    <ImageView android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:src="@drawable/flower"
+    />
+    <ImageView android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="@drawable/flower"
+               android:background="#FF0000"
+               android:scaleType="fitXY"
+               android:adjustViewBounds="true"
+               android:maxWidth="90dp"
+               android:maxHeight="90dp"
+               android:tint="#77FF0000"/>
+</LinearLayout>
