@@ -1,22 +1,84 @@
 package com.example.superuicomponents;
 
+import android.app.Activity;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
-import android.widget.ProgressBar;
-import android.widget.Toast;
+import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
-    int mProgress = 0;//进度条
+    //int mProgress = 0;//进度条
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
 
 
+
+        setContentView(R.layout.ratingbartext);
+        final RatingBar ratingBar = findViewById(R.id.ratingbar);
+        Button button = findViewById(R.id.btn);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                float rating = ratingBar.getRating();
+                Toast.makeText(MainActivity.this,"你得到了"+rating+"颗星",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+
+
+        /*
+        //星级评分条
+        setContentView(R.layout.ratingbardemo);
+        RatingBar ratingBar = findViewById(R.id.ratingbar);
+        String rating = String.valueOf(ratingBar.getRating());
+        Toast.makeText(MainActivity.this,"Rating:"+rating,Toast.LENGTH_SHORT).show();
+        String stepSize = String.valueOf(ratingBar.getStepSize());
+        Toast.makeText(MainActivity.this,"StepSize:"+stepSize,Toast.LENGTH_SHORT).show();
+        String progress = String.valueOf(ratingBar.getProgress());
+        Toast.makeText(MainActivity.this,"Progress:"+progress,Toast.LENGTH_SHORT).show();
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                Toast.makeText(MainActivity.this,"rating:"+rating+",fromUser"+fromUser,Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+
+
+        /*
+        setContentView(R.layout.seekbardemo);
+        SeekBar seekBar = findViewById(R.id.seekbar);
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                //进度改变时
+                Toast.makeText(MainActivity.this,"速度改变"+progress,Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                //开始触摸时
+                Toast.makeText(MainActivity.this,"开始触摸",Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                //结束触摸时
+                Toast.makeText(MainActivity.this,"停止触摸",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        /*
         //进度条-开心消消乐启动界面的进度条
         setContentView(R.layout.progressbartext);
         final ProgressBar progressBar = findViewById(R.id.progressbar);
