@@ -9,20 +9,43 @@ import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
     //int mProgress = 0;//进度条
-
+    /*
     ImageSwitcher imageSwitcher;
     int index = 0;
     float touchDownX;
     float touchUpX;//图像切换器
-
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
 
+        //网格视图
+        setContentView(R.layout.gridviewdemo);
+        int[] picture = new int[]{R.drawable.img01,R.drawable.img02,R.drawable.img03,R.drawable.img04,R.drawable.img05,R.drawable.img06,R.drawable.img07,R.drawable.img08,R.drawable.img09};
+        GridView gridView = findViewById(R.id.gridview);
+        List<Map<String,Object>> listitem = new ArrayList<>();
+        for (int i = 0; i < picture.length; i++) {
+            Map<String,Object> map = new HashMap<>();
+            map.put("image",picture[i]);
+            listitem.add(map);
+        }
+        SimpleAdapter simpleAdapter = new SimpleAdapter(this,listitem,R.layout.cell,new String[]{"image"},new int[]{R.id.image});
+        gridView.setAdapter(simpleAdapter);
 
+
+
+
+
+
+        /*
         //图像切换器-实现类似手机相册的滑动查看相片功能
         setContentView(R.layout.imageswitchertext);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
