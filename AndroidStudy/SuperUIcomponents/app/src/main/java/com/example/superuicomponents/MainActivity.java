@@ -1,6 +1,9 @@
 package com.example.superuicomponents;
 
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,12 +11,62 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
     //int mProgress = 0;//进度条
+
+    ImageSwitcher imageSwitcher;
+    int index = 0;
+    float touchDownX;
+    float touchUpX;//图像切换器
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
 
 
+        //图像切换器-实现类似手机相册的滑动查看相片功能
+        setContentView(R.layout.imageswitchertext);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        final int[] arrayPictures = new int[]{R.drawable.img01,R.drawable.img02,R.drawable.img03,R.drawable.img04,R.drawable.img05,R.drawable.img06,R.drawable.img07,R.drawable.img08,R.drawable.img09};
+        imageSwitcher = findViewById(R.id.imageSwichter);
+
+        imageSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
+            @Override
+            public View makeView() {
+                ImageView imageView = new ImageView(MainActivity.this);
+                imageView.setImageResource(arrayPictures[index]);
+                return imageView;
+            }
+        });
+        imageSwitcher.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction()==MotionEvent.ACTION_DOWN){
+                    touchDownX = event.getX();
+                    return true;
+                }else if (event.getAction()==MotionEvent.ACTION_UP){
+                    touchUpX = event.getX();
+                    if (touchUpX-touchDownX>100){
+                        //认为从左向右滑动
+                        index = index==0?arrayPictures.length-1:index-1;
+                        imageSwitcher.setInAnimation(AnimationUtils.loadAnimation(MainActivity.this,R.anim.slide_in_left));
+                        imageSwitcher.setOutAnimation(AnimationUtils.loadAnimation(MainActivity.this,R.anim.slide_out_right));
+                        imageSwitcher.setImageResource(arrayPictures[index]);
+                    }else if (touchDownX-touchUpX>100){
+                        //认为从右向左滑动
+                        index = index==arrayPictures.length-1?0:index+1;
+                        imageSwitcher.setInAnimation(AnimationUtils.loadAnimation(MainActivity.this,R.anim.slide_in_right));
+                        imageSwitcher.setOutAnimation(AnimationUtils.loadAnimation(MainActivity.this,R.anim.slide_out_left));
+                        imageSwitcher.setImageResource(arrayPictures[index]);
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
+
+
+
+        /*
         //图像切换器
         setContentView(R.layout.imageswitcherdemo);
         ImageSwitcher is = findViewById(R.id.imageSwichter);
@@ -92,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         /*
+        //拖动条
         setContentView(R.layout.seekbardemo);
         SeekBar seekBar = findViewById(R.id.seekbar);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
