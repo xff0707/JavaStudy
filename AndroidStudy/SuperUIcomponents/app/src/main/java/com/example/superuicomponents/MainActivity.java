@@ -1,7 +1,10 @@
 package com.example.superuicomponents;
 
+import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -22,11 +25,25 @@ public class MainActivity extends AppCompatActivity {
     float touchDownX;
     float touchUpX;//图像切换器
     */
+    int[] picture = {R.drawable.img01,R.drawable.img02,R.drawable.img03,R.drawable.img04,R.drawable.img05,R.drawable.img06,R.drawable.img07,R.drawable.img08,R.drawable.img09,R.drawable.img10,R.drawable.img11,R.drawable.img12};//网格视图
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
 
+
+        //网格视图-实现手机QQ相册页面
+        setContentView(R.layout.gridviewtext);
+        GridView gridView = findViewById(R.id.gridview);
+        gridView.setAdapter(new ImageAdapter(this));
+
+
+
+
+
+
+
+        /*
         //网格视图
         setContentView(R.layout.gridviewdemo);
         int[] picture = new int[]{R.drawable.img01,R.drawable.img02,R.drawable.img03,R.drawable.img04,R.drawable.img05,R.drawable.img06,R.drawable.img07,R.drawable.img08,R.drawable.img09};
@@ -241,5 +258,45 @@ public class MainActivity extends AppCompatActivity {
         //进度条
         setContentView(R.layout.progressbardemo);
          */
+    }
+
+
+
+    public class ImageAdapter extends BaseAdapter{
+        //网格视图-实现手机QQ相册页面
+        private Context mContext;
+
+        public ImageAdapter(Context mContext) {
+            this.mContext = mContext;
+        }
+
+        @Override
+        public int getCount() {
+            return picture.length;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ImageView imageView;
+            if (convertView==null){
+                imageView = new ImageView(mContext);
+                imageView.setLayoutParams(new GridView.LayoutParams(100,90));
+                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            }else {
+                imageView = (ImageView) convertView;
+            }
+            imageView.setImageResource(picture[position]);
+            return imageView;
+        }
     }
 }
